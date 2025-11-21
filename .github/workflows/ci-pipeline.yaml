@@ -24,5 +24,6 @@ jobs:
           GOOS=linux GOARCH=amd64 go build -o app .
 
       - name: Build Docker image
+        if: github.event_name == 'push'
         run: |
           docker build -t myapp:latest .
